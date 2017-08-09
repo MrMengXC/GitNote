@@ -29,6 +29,7 @@ git log --pretty=oneline /git log
 
 //回滚到某版本
 git reset --hard 版本id
+git reset 版本id(猜测回滚到了没有提交时候的版本)
 
 //记录每一次命令
  git reflog
