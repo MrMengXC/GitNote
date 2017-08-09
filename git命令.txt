@@ -1,0 +1,74 @@
+工作区---（add）---》暂存区----（commit）--->分支---（push/pull）---》远程
+
+//--------------------------创建git 版本仓库-----------------------------
+cd 到路径
+把这个目录变成Git可以管理的仓库：
+git init 
+
+//----------------------本地库与远程库做关联--------------
+git remote add origin git@github.com:michaelliao/learngit.git
+//删除远程关联
+git remote rm origin
+
+
+//我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。（以后就可以省略-u）
+git push -u origin master
+
+//从远程库克隆一个仓库
+git clone git@github.com:michaelliao/gitskills.git
+
+
+//将文件放在暂存区
+git add 文件名
+
+//暂存区的所有内容提交到当前分支。并且写上备注
+git commit -m "msg"
+
+//打印提交信息
+git log --pretty=oneline /git log
+
+//回滚到某版本
+git reset --hard 版本id
+
+//记录每一次命令
+ git reflog
+
+
+//命令意思就是，把readme.txt文件在工作区的修改全部撤销
+//总之，就是让这个文件回到最近一次git commit或git add时的状态。
+git checkout -- readme.txt
+
+
+//git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区
+git reset HEAD readme.txt
+
+
+//--------------------------删除文件-----------------
+//删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：
+git checkout -- test.txt
+
+//确定删除
+$ git rm test.txt
+$ git commit -m "remove test.txt"
+
+
+//-------------------------分支------------------------
+//查看分支
+git branch
+
+//创建分支
+git branch dev
+//切换到分支
+git checkout dev
+//合并分支
+git merge dev
+删除分支
+git branch -d dev
+
+//-----------------------------推送/拉去
+//推送
+$ git push origin master
+//拉取
+git pull
+
+
